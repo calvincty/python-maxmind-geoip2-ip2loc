@@ -45,5 +45,18 @@ result = {
 }
 ```
 
+### Code Examples ###
+Python with dict output: 
+```
+./apps/ip2loc.py
+```
 
+Python with Pandas dataframe:
+```
+./apps/pandas_ip2loc.py
+```
 
+PySpark Dataframe with UDF:
+```
+./apps/pyspark_ip2loc.py
+```
