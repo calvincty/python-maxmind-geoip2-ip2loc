@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Translate IPv4 to Geo-locations data.
+"""Translate IPv4 address to Geolocations data.
 
 This module demonstrates on using MaxMind free GeoLite2 City Database
 to retrieve geo-locations data provided with an IPv4 address.
