@@ -55,8 +55,6 @@ def pandas_func_ip2loc(ip_addr):
     except:  # pylint: disable=bare-except
         return pd.Series(['', '', '', '', ''])
 
-    return result
-
 
 def main():
     """Demonstrate GeoIP2 country and city data."""
