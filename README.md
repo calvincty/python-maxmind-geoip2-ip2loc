@@ -23,12 +23,13 @@ response = reader.city('99.203.80.145')
 print(response) # return the City model with the dict-like data
 ```
 
-Dictionary output
+Output
 ```json
-{'city': {'geoname_id': 4354256, 'names': {'en': 'Elkridge'}}, 'continent': {'code': 'NA', 'geoname_id': 6255149, 'names': {'de': 'Nordamerika', 'en': 'North America', 'es': 'Norteamérica', 'fr': 'Amérique du Nord', 'ja': '北アメリカ', 'pt-BR': 'América do Norte', 'ru': 'Северная Америка', 'zh-CN': '北美洲'}}, 'country': {'geoname_id': 6252001, 'iso_code': 'US', 'names': {'de': 'USA', 'en': 'United States', 'es': 'Estados Unidos', 'fr': 'États-Unis', 'ja': 'アメリカ合衆国', 'pt-BR': 'Estados Unidos', 'ru': 'США', 'zh-CN': '美国'}}, 'location': {'accuracy_radius': 100, 'latitude': 39.2151, 'longitude': -76.754, 'metro_code': 512, 'time_zone': 'America/New_York'}, 'postal': {'code': '21075'}, 'registered_country': {'geoname_id': 6252001, 'iso_code': 'US', 'names': {'de': 'USA', 'en': 'United States', 'es': 'Estados Unidos', 'fr': 'États-Unis', 'ja': 'アメリカ合衆国', 'pt-BR': 'Estados Unidos', 'ru': 'США', 'zh-CN': '美国'}}, 'subdivisions': [{'geoname_id': 4361885, 'iso_code': 'MD', 'names': {'de': 'Maryland', 'en': 'Maryland', 'es': 'Maryland', 'fr': 'Maryland', 'ja': 'メリーランド州', 'pt-BR': 'Maryland', 'ru': 'Мэриленд', 'zh-CN': '马里兰州'}}], 'traits': {'ip_address': '99.203.80.145', 'prefix_len': 25}}
+geoip2.models.City({'city': {'geoname_id': 4354256, 'names': {'en': 'Elkridge'}}, 'continent': {'code': 'NA', 'geoname_id': 6255149, 'names': {'de': 'Nordamerika', 'en': 'North America', 'es': 'Norteamérica', 'fr': 'Amérique du Nord', 'ja': '北アメリカ', 'pt-BR': 'América do Norte', 'ru': 'Северная Америка', 'zh-CN': '北美洲'}}, 'country': {'geoname_id': 6252001, 'iso_code': 'US', 'names': {'de': 'USA', 'en': 'United States', 'es': 'Estados Unidos', 'fr': 'États-Unis', 'ja': 'アメリカ合衆国', 'pt-BR': 'Estados Unidos', 'ru': 'США', 'zh-CN': '美国'}}, 'location': {'accuracy_radius': 100, 'latitude': 39.2151, 'longitude': -76.754, 'metro_code': 512, 'time_zone': 'America/New_York'}, 'postal': {'code': '21075'}, 'registered_country': {'geoname_id': 6252001, 'iso_code': 'US', 'names': {'de': 'USA', 'en': 'United States', 'es': 'Estados Unidos', 'fr': 'États-Unis', 'ja': 'アメリカ合衆国', 'pt-BR': 'Estados Unidos', 'ru': 'США', 'zh-CN': '美国'}}, 'subdivisions': [{'geoname_id': 4361885, 'iso_code': 'MD', 'names': {'de': 'Maryland', 'en': 'Maryland', 'es': 'Maryland', 'fr': 'Maryland', 'ja': 'メリーランド州', 'pt-BR': 'Maryland', 'ru': 'Мэриленд', 'zh-CN': '马里兰州'}}], 'traits': {'ip_address': '99.203.80.145', 'prefix_len': 25}}, ['en'])
 ```
 
 Extract geo-location data from the output
+
 ```python
 result = {
     # Continent Code: eg. NA (North America)
