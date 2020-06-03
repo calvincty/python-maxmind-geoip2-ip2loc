@@ -15,7 +15,6 @@ https://dev.maxmind.com/geoip/geoip2/geolite2/
 
 """
 
-import sys
 import os
 from pyspark.sql import SparkSession, Row
 import pyspark.sql.functions as f
@@ -61,15 +60,20 @@ def udf_ip2loc(ip_addr):
         reader = geoip2.database.Reader(
             APP_DIR + '/data/GeoLite2-City/GeoLite2-City.mmdb')
         response = reader.city(ip_addr)
-        return Row('continent_code', 'country_iso_code', 'subdiv1_iso_code',
-                   'subdiv1_name', 'city')(
+        return Row(
+            'continent_code',
+            'country_iso_code',
+            'subdiv1_iso_code',
+            'subdiv1_name',
+            'city'
+        )(
             response.continent.code,
             response.country.iso_code,
             response.subdivisions.most_specific.iso_code,
             response.subdivisions.most_specific.name,
             response.city.name
         )
-    except Exception as err:  # pylint: disable=bare-except
+    except:  # pylint: disable=bare-except
         return Row('continent_code', 'country_iso_code', 'subdiv1_iso_code',
                    'subdiv1_name', 'city')('', '', '', '', '')
 
