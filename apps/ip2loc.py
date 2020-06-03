@@ -41,30 +41,29 @@ def ip2loc(ip_addr):
     }
     """
 
-    result = {
-        'ip_addr': ip_addr,
-        'continent_code': '',
-        'country_iso_code': '',
-        'subdiv1_iso_code': '',
-        'subdiv1_name': '',
-        'city': ''
-    }
-
     try:
         reader = geoip2.database.Reader(
             APP_DIR + '/data/GeoLite2-City/GeoLite2-City.mmdb')
         response = reader.city(ip_addr)
-        result['continent_code'] = response.continent.code
-        result['country_iso_code'] = response.country.iso_code
-        result['subdiv1_iso_code'] = response.subdivisions \
-            .most_specific.iso_code
-        result['subdiv1_name'] = response.subdivisions \
-            .most_specific.name
-        result['city'] = response.city.name
+        return {
+            'ip_addr': ip_addr,
+            'continent_code': response.continent.code,
+            'country_iso_code': response.country.iso_code,
+            'subdiv1_iso_code': response.subdivisions
+            .most_specific.iso_code,
+            'subdiv1_name': response.subdivisions
+            .most_specific.name,
+            'city': response.city.name
+        }
     except:  # pylint: disable=bare-except
-        pass
-
-    return result
+        return {
+            'ip_addr': ip_addr,
+            'continent_code': '',
+            'country_iso_code': '',
+            'subdiv1_iso_code': '',
+            'subdiv1_name': '',
+            'city': ''
+        }
 
 
 def main():

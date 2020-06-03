@@ -41,34 +41,16 @@ def pandas_func_ip2loc(ip_addr):
         'city': 'Elkridge',
     }
     """
-
-    result = {
-        'ip_addr': ip_addr,
-        'continent_code': '',
-        'country_iso_code': '',
-        'subdiv1_iso_code': '',
-        'subdiv1_name': '',
-        'city': ''
-    }
-
     try:
         reader = geoip2.database.Reader(
             APP_DIR + '/data/GeoLite2-City/GeoLite2-City.mmdb')
         response = reader.city(ip_addr)
-        result['continent_code'] = response.continent.code
-        result['country_iso_code'] = response.country.iso_code
-        result['subdiv1_iso_code'] = response.subdivisions \
-            .most_specific.iso_code
-        result['subdiv1_name'] = response.subdivisions \
-            .most_specific.name
-        result['city'] = response.city.name
-
         return pd.Series([
-            result['continent_code'],
-            result['country_iso_code'],
-            result['subdiv1_iso_code'],
-            result['subdiv1_name'],
-            result['city'],
+            response.continent.code,
+            response.country.iso_code,
+            response.subdivisions.most_specific.iso_code,
+            response.subdivisions.most_specific.name,
+            response.city.name,
         ])
     except:  # pylint: disable=bare-except
         return pd.Series(['', '', '', '', ''])

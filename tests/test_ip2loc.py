@@ -18,7 +18,6 @@ def test_ip2loc():
     """Test getting geo information given an IPv4 address."""
     ip_addr = '99.203.80.145'
     data = ip2loc.ip2loc(ip_addr)
-    print(data)
 
     assert data['continent_code'] == 'NA'
     assert data['country_iso_code'] == 'US'
