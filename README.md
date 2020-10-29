@@ -1,6 +1,25 @@
 ## Translate IPv4 address to Geolocations data ##
 This repository demonstrate a Python script using MaxMind free GeoLite2City database to translate a given IPv4 address to the desired geo-location data such as continent, country, subdivision and city.
 
+### Run with Docker ###
+Build the container image
+```
+docker build -t ip2loc .
+```
+
+Run the script
+```
+# return result as array
+docker run ip2loc ip2loc.py
+
+# Pandas DataFrame: write the output as CSV (mount the output directory)
+docker run -v /path-to-host-output-dir:/tmp ip2loc pandas_ip2loc.py
+```
+
+Sample Output
+
+![CSV Output](./docs/screenshot-output-csv.png)
+
 ### Using the geoip2 library ###
 You are required to signup at MaxMind before able to download the free database. Sign up at https://dev.maxmind.com/geoip/geoip2/geolite2/
 

@@ -96,7 +96,7 @@ def main():
     ]] = df_ip.ip_addr.apply(pandas_func_ip2loc)
 
     # write dataframe into csv
-    # df_ip.to_csv(APP_DIR + '/data/data.csv', index=False)
+    df_ip.to_csv('/tmp/data.csv', index=False)
 
 
 if __name__ == '__main__':
